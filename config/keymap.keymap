@@ -29,10 +29,10 @@
 
         layer_1 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                &mkp LCLK  &mo 4             &mkp RCLK  &trans                 &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &kp RG(LEFT_BRACKET)  &mkp MB1   &mkp MB3          &mkp MB2   &kp RG(RIGHT_BRACKET)  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                &trans     &kp LC(UP_ARROW)  &trans     &trans                 &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                &trans     &trans            &trans     &trans                 &trans
+&kp ESCAPE  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6                &kp N7    &kp N8            &kp N9    &kp N0                 &trans
+&trans      &trans  &trans  &trans  &trans  &trans  &kp RG(LEFT_BRACKET)  &mkp MB1  &mkp MB3          &mkp MB2  &kp RG(RIGHT_BRACKET)  &trans
+&trans      &trans  &trans  &trans  &trans  &trans  &trans                &trans    &kp LC(UP_ARROW)  &trans    &trans                 &trans  &trans  &trans
+&trans      &trans  &trans  &trans  &trans  &trans  &trans                &trans    &trans            &trans    &trans                 &trans
             >;
         };
 
