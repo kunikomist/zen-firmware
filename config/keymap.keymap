@@ -23,16 +23,16 @@
 &kp TAB    &kp Q         &kp W         &kp E  &kp R  &kp T      &kp Y         &kp U                &kp I  &kp O           &kp P           &kp BSPC
 &kp TAB    &kp A         &kp S         &kp D  &kp F  &kp G      &kp H         &kp J                &kp K  &kp L           &kp MINUS       &kp NON_US_BACKSLASH
 &kp LSHFT  &kp Z         &kp X         &kp C  &kp V  &kp B      &kp CAPSLOCK  &kp LEFT_BRACKET     &kp N  &kp M           &kp COMMA       &kp DOT               &kp SEMICOLON  &mt RSHFT QUESTION
-&kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &mo 3  &mo 2  &kp SPACE  &kp ENTER     &lt 1 RIGHT_BRACKET  &mo 3  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_CONTROL
+&kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &mo 3  &mo 2  &kp SPACE  &kp ENTER     &lt 1 RIGHT_BRACKET  &mo 1  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_CONTROL
             >;
         };
 
         layer_1 {
             bindings = <
-&kp ESCAPE  &kp N1           &kp N2       &kp N3    &kp N4      &kp N5       &kp N6         &kp N7         &kp N8            &kp N9        &kp N0                 &kp BACKSPACE
-&trans      &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT  &kp RG(CARET)  &kp AMPERSAND  &mkp MB3          &kp UP_ARROW  &kp RG(RIGHT_BRACKET)  &trans
-&trans      &trans           &trans       &trans    &trans      &trans       &trans         &trans         &kp LC(UP_ARROW)  &trans        &kp LEFT_ARROW         &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans
-&trans      &trans           &trans       &trans    &trans      &trans       &trans         &trans         &trans            &trans        &trans                 &trans
+&kp ESCAPE      &kp N1           &kp N2        &kp N3    &kp N4      &kp N5       &kp N6         &kp N7         &kp N8            &kp N9        &kp N0                 &kp BACKSPACE
+&kp TAB         &kp EXCLAMATION  &kp AT_SIGN   &kp HASH  &kp DOLLAR  &kp PERCENT  &kp RG(CARET)  &kp AMPERSAND  &mkp MB3          &kp UP_ARROW  &kp RG(RIGHT_BRACKET)  &trans
+&kp LEFT_SHIFT  &trans           &trans        &trans    &trans      &trans       &trans         &trans         &kp LC(UP_ARROW)  &trans        &kp LEFT_ARROW         &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans
+&kp LCTRL       &kp LEFT_GUI     &kp LEFT_ALT  &mo 3     &mo 2       &kp SPACE    &kp ENTER      &to 0          &trans            &trans        &trans                 &trans
             >;
         };
 
