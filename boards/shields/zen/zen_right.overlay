@@ -2,25 +2,15 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
-/* スニペットが生成する標準リスナー（自動レイヤー切替付き）を停止 */
+/* 既存の pointing_listener を一度完全に空にして再定義します */
 &pointing_listener {
-    status = "disabled";
-};
+    /* デフォルト（レイヤー 0 など）は移動量を 0 にして無効化 */
+    input-processors = <&zip_xy_scaler 0 1>;
 
-/* 新しい独自リスナーを定義（vtrackball ではなく trackball を指定） */
-/ {
-    custom_trackball_listener: custom_trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
-
-        /* 通常（レイヤー0等）は移動量 0 で無効化 */
-        input-processors = <&zip_xy_scaler 0 1>;
-
-        /* レイヤー 2 の時だけトラックボール移動（反転適用）を許可 */
-        enable_trackball_layer {
-            layers = <2>;
-            input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
-        };
+    /* 自動レイヤー切替（scrollerノード等）を消去し、レイヤー 2 のみ有効化 */
+    enable_trackball_layer {
+        layers = <2>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     };
 };
 
