@@ -4,6 +4,11 @@
 
 &pointing_listener {
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+
+    no_trackball_layer {
+        layers = <0>; /* ← 無効化したいレイヤー番号を指定してください */
+        input-processors = <&zip_xy_scaler 0 1>;
+    };
 };
 
 &zen_transform {
