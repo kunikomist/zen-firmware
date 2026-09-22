@@ -2,16 +2,20 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
-/* 既存の pointing_listener を一度完全に空にして再定義します */
+/* スニペット側で定義されているリスナーの処理を完全に上書き・再定義 */
 &pointing_listener {
-    /* デフォルト（レイヤー 0 など）は移動量を 0 にして無効化 */
+    /* 1. 標準状態（全レイヤー共通のベース）では移動量を 0（無効）に設定 */
     input-processors = <&zip_xy_scaler 0 1>;
 
-    /* 自動レイヤー切替（scrollerノード等）を消去し、レイヤー 2 のみ有効化 */
+    /* 2. レイヤー 2 に切り替わった時だけトラックボール入力を許可 */
     enable_trackball_layer {
         layers = <2>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     };
+
+    /* 3. スニペット側が生成する自動レイヤー切替ノード（scroller等）の処理を空振りさせる */
+    /delete-node/ scroller;
+    /delete-node/ auto_layer;
 };
 
 &zen_transform {
