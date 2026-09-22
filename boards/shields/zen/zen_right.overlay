@@ -2,12 +2,21 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
-&pointing_listener {
-    input-processors = <&zip_xy_scaler 0 1>;
+/ {
+    /delete-node/ pointing_listener;
+};
 
-    enable_trackball_layer {
-        layers = <2>;
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+/ {
+    pointing_listener: pointing_listener {
+        compatible = "zmk,input-listener";
+        device = <&vtrackball>;
+
+        input-processors = <&zip_xy_scaler 0 1>;
+
+        enable_trackball_layer {
+            layers = <2>;
+            input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+        };
     };
 };
 
