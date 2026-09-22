@@ -7,11 +7,11 @@
     status = "disabled";
 };
 
-/* 新しい独自リスナーを定義（スニペットの自動切替干渉を回避） */
+/* 新しい独自リスナーを定義（vtrackball ではなく trackball を指定） */
 / {
     custom_trackball_listener: custom_trackball_listener {
         compatible = "zmk,input-listener";
-        device = <&vtrackball>;
+        device = <&trackball>;
 
         /* 通常（レイヤー0等）は移動量 0 で無効化 */
         input-processors = <&zip_xy_scaler 0 1>;
