@@ -4,17 +4,34 @@
 
 /* スニペット側で定義されているリスナーの処理を完全に上書き・再定義 */
 &pointing_listener {
-    /* 1. 標準状態（全レイヤー共通のベース）では移動量を 0（無効）に設定 */
+    /* 1. 標準状態（全レイヤー共通のベース）ではトラックボールを無効化 */
     input-processors = <&zip_xy_scaler 0 1>;
 
-    /* 2. レイヤー 2 に切り替わった時だけトラックボール入力を許可 */
+    /*
+     * 2. Layer 4ではトラックボールをスクロールとして使用
+     *    Layer 4はスクロールキーを押している間だけ有効
+     */
+    /delete-node/ scroller;
+
+    scroller {
+        layers = <4>;
+        input-processors =
+            <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
+            <&zip_xy_to_scroll_mapper>,
+            <&pmw3610_scroll_scaler 1 20>;
+    };
+
+    /*
+     * 3. Layer 2ではトラックボールを通常のマウスとして使用
+     */
     enable_trackball_layer {
         layers = <2>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
     };
 
-    /* 3. スニペット側が生成する自動レイヤー切替ノード（scroller等）の処理を空振りさせる */
-    /delete-node/ scroller;
+    /*
+     * 4. スニペット側の自動レイヤー切替は使用しない
+     */
     /delete-node/ auto_layer;
 };
 
